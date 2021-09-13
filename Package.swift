@@ -7,7 +7,6 @@ let package = Package(
         .iOS(.v11)
     ],
     products: [
-        .library(name: "GoogleCast", targets: ["GoogleCast"]),
         .library(name: "iOSOnlyFramework", targets: ["iOSOnlyFramework"])
     ],
     targets: [
