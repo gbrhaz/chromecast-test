@@ -18,9 +18,14 @@ let package = Package(
         .target(
             name: "iOSOnlyFramework",
             dependencies: [
-                .target(name: "GoogleCast", condition: .when(platforms: [.iOS]))
+                .target(name: "GoogleCast", condition: .when(platforms: [.iOS])),
+//                .target(name: "iOSOnlySourceDependency", condition: .when(platforms: [.iOS]))
             ],
             path: "Sources/iOSOnlyFramework"
+        ),
+        .target(
+            name: "iOSOnlySourceDependency",
+            path: "Sources/iOSOnlySourceDependency"
         )
     ]
 )
