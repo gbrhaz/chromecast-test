@@ -4,17 +4,23 @@ import PackageDescription
 let package = Package(
     name: "chromecast-test",
     platforms: [
-        .iOS(.v11), .tvOS(.v11)
+        .iOS(.v11)
     ],
     products: [
-        .library(name: "GoogleCast", targets: ["GoogleCast"])
-    ],
-    dependencies: [
+        .library(name: "GoogleCast", targets: ["GoogleCast"]),
+        .library(name: "iOSOnlyFramework", targets: ["iOSOnlyFramework"])
     ],
     targets: [
         .binaryTarget(
             name: "GoogleCast",
             path: "GoogleCast.xcframework"
+        ),
+        .target(
+            name: "iOSOnlyFramework",
+            dependencies: [
+                .target(name: "GoogleCast", condition: .when(platforms: [.iOS]))
+            ],
+            path: "Sources/iOSOnlyFramework"
         )
     ]
 )
