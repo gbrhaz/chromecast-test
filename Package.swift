@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "chromecast-test",
+    name: "spm-binary-conditional",
     platforms: [
         .iOS(.v11)
     ],
